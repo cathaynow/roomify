@@ -32,7 +32,7 @@ export default function Home() {
         <h1>Build beautiful spaces at the speed of thought with Roomify</h1>
 
         <p className="subtitle">
-          Rommify is an AI-first design environment that helps you visualize,
+          Roomify is an AI-first design environment that helps you visualize,
           render, and ship architectural projects faster than ever.
         </p>
 
@@ -55,7 +55,7 @@ export default function Home() {
               </div>
 
               <h3>Upload your floor plan</h3>
-              <p>Supports JPG, PNG, formats up to 10MB</p>
+              <p>Supports JPG and PNG formats up to 10MB</p>
             </div>
 
             <p>Upload images</p>
@@ -94,7 +94,7 @@ export default function Home() {
 
                   <div className="meta">
                     <Clock size={12} />
-                    <span>{new Date("01.01.2027").toLocaleString()}</span>
+                    <span>{new Date("2027-01-01").toLocaleString()}</span>
                     <span>By CATHAY Dev</span>
                   </div>
                 </div>
