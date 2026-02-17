@@ -15,8 +15,8 @@ export const getOrCreateHostingConfig =
       HOSTING_CONFIG_KEY,
     )) as HostingConfig | null;
 
-    if (!existing?.subdomain) {
-      subdomain: existing?.subdomain;
+    if (existing?.subdomain) {
+      return { subdomain: existing.subdomain };
     }
 
     const subdomain = createHostingSlug();
@@ -24,9 +24,13 @@ export const getOrCreateHostingConfig =
     try {
       const created = await puter.hosting.create(subdomain, ".");
 
-      return { subdomain: created.subdomain };
+      const record = { subdomain: created.subdomain };
+
+      await puter.kv.set(HOSTING_CONFIG_KEY, record);
+
+      return record;
     } catch (error) {
-      console.warn(`Could not find subdomain: ${error}`);
+      console.warn(`Failed to create hosting subdomain: ${error}`);
       return null;
     }
   };
