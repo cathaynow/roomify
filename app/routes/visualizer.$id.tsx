@@ -7,7 +7,7 @@ import Button from "~/components/ui/Button";
 const VisualizerId = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { initialImage, initialRender, name } = location.state || {};
+  const { initialImage, initialRender } = location.state || {};
 
   const hasInitialGenerated = useRef(false);
 
@@ -69,7 +69,7 @@ const VisualizerId = () => {
             <div className="panel-meta">
               <p>Project</p>
               <h2>{"Untitled Project"}</h2>
-              <p className="note">Create by You</p>
+              <p className="note">Created by You</p>
             </div>
 
             <div className="panel-actions">
